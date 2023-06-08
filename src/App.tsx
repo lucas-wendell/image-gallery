@@ -1,3 +1,6 @@
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 function App() {
 	return (
 		<>
@@ -5,6 +8,7 @@ function App() {
 				Hello world!
 			</h1>
 			<button className="dark:md:hover:bg-fuchsia-600">Save changes</button>
+			<FontAwesomeIcon icon={faUser} />
 		</>
 	);
 }
