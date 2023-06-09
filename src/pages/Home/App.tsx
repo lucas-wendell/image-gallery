@@ -1,9 +1,12 @@
+import SearchForm from "../../component/SearchForm";
+
 const App: React.FC = () => (
 	<>
-		<h1 className="font-openSans font-bold text-3xl underline bg-sky-500 hover:bg-sky-700">
-			Hello world!
-		</h1>
-		<button className="dark:md:hover:bg-fuchsia-600">Save changes</button>
+		<div className="w-screen h-screen">
+			<div className="w-screen h-1/6 bg-light-gray relative">
+				<SearchForm />
+			</div>
+		</div>
 	</>
 );
 

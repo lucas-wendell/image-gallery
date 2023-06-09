@@ -7,8 +7,9 @@ export default {
 				pink: "#ea4c89",
 				"dark-blue": "#0d0c22",
 				"medium-gray": "#3d3d4e",
-				"light-gray": "#ccc",
-				gray: "#6e6d7a",
+				gray: "#ccc",
+				"main-gray": "#6e6d7a",
+				"light-gray": "#f3f3f4",
 			},
 			fontFamily: {
 				openSans: ["'Open Sans'", "sans-serif"],
