@@ -3,6 +3,13 @@
 		"browser": true,
 		"es2021": true
 	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			}
+		}
+	},
 	"extends": [
 		"plugin:react/recommended",
 		"standard-with-typescript",
@@ -24,7 +31,7 @@
 				"prefer": "type-imports"
 			}
 		],
-
+		"import/no-unresolved": [0, { "caseSensitive": true }],
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn"
 	}

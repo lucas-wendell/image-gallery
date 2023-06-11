@@ -20,7 +20,7 @@ module.exports = {
 				prefer: "type-imports",
 			},
 		],
-
+		"import/no-unresolved": [0, { caseSensitive: true }],
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
 	},
