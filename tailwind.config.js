@@ -17,6 +17,9 @@ export default {
 			boxShadow: {
 				formShadow: "0px 8px 20px rgba(0,0,0,0.06)",
 			},
+			spacing: {
+				"34px": "34px",
+			},
 		},
 	},
 	plugins: [],
