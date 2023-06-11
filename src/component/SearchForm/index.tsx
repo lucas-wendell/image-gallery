@@ -25,6 +25,13 @@ const SearchForm: React.FC = () => {
 		setInputValue(actualInputValue.value);
 	};
 
+	const clearInput = () => {
+		if (inputRef.current) {
+			inputRef.current.value = "";
+		}
+		setInputValue("");
+	};
+
 	useEffect(() => {
 		if (inputValue !== "") return setCloseBtnVisibility(true);
 		setCloseBtnVisibility(false);
@@ -46,7 +53,13 @@ const SearchForm: React.FC = () => {
 					onChange={handleInputChange}
 				/>
 			</label>
-			{closeBtnVisibility && <FontAwesomeIcon icon={faCircleXmark} />}
+			{closeBtnVisibility && (
+				<FontAwesomeIcon
+					className="cursor-pointer"
+					icon={faCircleXmark}
+					onClick={clearInput}
+				/>
+			)}
 		</form>
 	);
 };
