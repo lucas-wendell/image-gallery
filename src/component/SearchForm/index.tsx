@@ -39,9 +39,9 @@ const SearchForm: React.FC = () => {
 	}, [inputValue]);
 
 	return (
-		<div className="flex items-center justify-center flex-col gap-2.5 w-4/5 h- absolute left-2/4 -translate-x-2/4 top-full -translate-y-2/4 ">
+		<div className="flex items-center justify-center flex-col gap-7 w-4/5 h- absolute left-2/4 -translate-x-2/4 top-full -translate-y-2/4 ">
 			<form
-				className="flex items-center justify-center w-full mt-34px bg-white py-5 px-2.5 rounded-lg shadow-formShadow"
+				className="flex items-center justify-center w-full mt-87px bg-white py-5 px-2.5 rounded-lg shadow-formShadow"
 				onSubmit={handleSubmit}
 				onClick={handleFormClick}
 			>
