@@ -3,11 +3,13 @@ import React from "react";
 type FilterButtonProps = {
 	name: string;
 	type?: "primary" | "secondary";
+	id: string;
 };
 
 const FilterButton: React.FC<FilterButtonProps> = ({
 	name,
 	type = "primary",
+	id,
 }: FilterButtonProps) => {
 	const styles = {
 		primary:
@@ -20,6 +22,7 @@ const FilterButton: React.FC<FilterButtonProps> = ({
 			type="button"
 			title={name}
 			aria-label={name}
+			id={id}
 		>
 			{name}
 		</a>
