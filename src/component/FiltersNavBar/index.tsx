@@ -114,6 +114,8 @@ const FiltersNavBar: React.FC = () => {
 	const handleClick = (e: React.MouseEvent) => {
 		const target = e.target as HTMLElement;
 		const id = target.getAttribute("id");
+		if (!id) return;
+
 		setCategories((prevState) =>
 			prevState.map((category) =>
 				category.id === id
