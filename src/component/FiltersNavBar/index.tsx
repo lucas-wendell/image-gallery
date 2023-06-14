@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import FilterButton from "../FilterButton";
+import { FilterContext } from "../../contexts/FilterContext";
 
 type Categories = Array<{
 	name: string;
@@ -8,6 +9,7 @@ type Categories = Array<{
 }>;
 
 const FiltersNavBar: React.FC = () => {
+	const { changeFilter } = useContext(FilterContext);
 	const [categories, setCategories] = useState<Categories>([
 		{
 			name: "backgrounds",
@@ -114,8 +116,9 @@ const FiltersNavBar: React.FC = () => {
 	const handleClick = (e: React.MouseEvent) => {
 		const target = e.target as HTMLElement;
 		const id = target.getAttribute("id");
-		if (!id) return;
+		if (!id || !target.textContent) return;
 
+		changeFilter(target.textContent);
 		setCategories((prevState) =>
 			prevState.map((category) =>
 				category.id === id

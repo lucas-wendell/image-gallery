@@ -7,6 +7,7 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import FiltersNavBar from "../FiltersNavBar";
+import FilterContextProvider from "../../contexts/FilterContext";
 
 const SearchForm: React.FC = () => {
 	const inputRef = useRef<null | HTMLInputElement>(null);
@@ -66,7 +67,9 @@ const SearchForm: React.FC = () => {
 					/>
 				)}
 			</form>
-			<FiltersNavBar />
+			<FilterContextProvider>
+				<FiltersNavBar />
+			</FilterContextProvider>
 		</div>
 	);
 };
