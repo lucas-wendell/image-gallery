@@ -1,21 +1,33 @@
+import React, { useContext, useEffect, useRef, useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faCircleXmark,
 	faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 
-import React, { useEffect, useRef, useState } from "react";
-import type { ChangeEvent, FormEvent } from "react";
 import FiltersNavBar from "../FiltersNavBar";
-import FilterContextProvider from "../../contexts/FilterContext";
+import { FilterContext } from "../../contexts/FilterContext";
+import { getData } from "../../service";
 
 const SearchForm: React.FC = () => {
 	const inputRef = useRef<null | HTMLInputElement>(null);
+	const { filter } = useContext(FilterContext);
+
 	const [inputValue, setInputValue] = useState<string>("");
 	const [closeBtnVisibility, setCloseBtnVisibility] = useState<boolean>(false);
+	const [lastSearch, setLastSearch] = useState<string>("");
 
-	const handleSubmit = (event: FormEvent) => {
+	useEffect(() => {
+		const data = getData(lastSearch, filter);
+		data.then((res) => console.log(res));
+	}, [filter, lastSearch]);
+
+	const handleSubmit = async (event: FormEvent) => {
 		event.preventDefault();
+		const treatedValue = inputValue.trim().replace(/\s/g, "+");
+		setLastSearch(treatedValue);
 	};
 
 	const handleFormClick = () => {
@@ -67,9 +79,7 @@ const SearchForm: React.FC = () => {
 					/>
 				)}
 			</form>
-			<FilterContextProvider>
-				<FiltersNavBar />
-			</FilterContextProvider>
+			<FiltersNavBar />
 		</div>
 	);
 };
