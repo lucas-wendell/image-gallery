@@ -1,6 +1,6 @@
 import React from "react";
 
-const PostContainer: React.FC = () => (
+const GalleryContainer: React.FC = () => (
 	<div className=" w-full">
 		<p>ola mundo</p>
 		<p>ola mundo</p>
@@ -10,4 +10,4 @@ const PostContainer: React.FC = () => (
 	</div>
 );
 
-export default PostContainer;
+export default GalleryContainer;

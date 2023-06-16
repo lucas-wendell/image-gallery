@@ -1,4 +1,4 @@
-import PostContainer from "../../component/PostContainer";
+import GalleryContainer from "../../component/GalleryContainer";
 import SearchForm from "../../component/SearchForm";
 import FilterContextProvider from "../../contexts/FilterContext";
 
@@ -10,7 +10,7 @@ const App: React.FC = () => (
 					<SearchForm />
 				</FilterContextProvider>
 			</div>
-			<PostContainer />
+			<GalleryContainer />
 		</div>
 	</>
 );
