@@ -16,22 +16,22 @@ const initialState = {
 	updateData: () => {},
 };
 
-export const FilterContext = createContext<DataContextType>(initialState);
+export const DataContext = createContext<DataContextType>(initialState);
 
-const FilterContextProvider = ({ children }: Props) => {
+const DataContextProvider = ({ children }: Props) => {
 	const [data, setData] = useState<Response | object>(initialState.data);
 	const updateData = (newData: Response) => setData(newData);
 
 	return (
-		<FilterContext.Provider
+		<DataContext.Provider
 			value={{
 				data,
 				updateData,
 			}}
 		>
 			{children}
-		</FilterContext.Provider>
+		</DataContext.Provider>
 	);
 };
 
-export default FilterContextProvider;
+export default DataContextProvider;
