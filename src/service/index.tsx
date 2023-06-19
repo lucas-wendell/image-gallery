@@ -1,4 +1,4 @@
-type Response = {
+export type Response = {
 	hits: Array<{
 		id: number;
 		pageURL: string;
