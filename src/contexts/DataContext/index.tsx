@@ -6,12 +6,12 @@ type Props = {
 };
 
 type DataContextType = {
-	data: Response | object;
+	data: Response | null;
 	updateData: (newData: Response) => void;
 };
 
 const initialState = {
-	data: {},
+	data: null,
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	updateData: () => {},
 };
@@ -19,7 +19,7 @@ const initialState = {
 export const DataContext = createContext<DataContextType>(initialState);
 
 const DataContextProvider = ({ children }: Props) => {
-	const [data, setData] = useState<Response | object>(initialState.data);
+	const [data, setData] = useState<Response | null>(initialState.data);
 	const updateData = (newData: Response) => setData(newData);
 
 	return (
