@@ -17,9 +17,9 @@ const Image: React.FC<ImageProps> = ({
 	searchPictureURL,
 	userName,
 }: ImageProps) => (
-	<div className="space-y-2 h-min">
+	<div className="space-y-4 h-min">
 		<div
-			className={`w-full h-56 bg-cover bg-center bg-no-repeat`}
+			className="w-full h-56 bg-cover bg-center bg-no-repeat rounded-lg"
 			style={{ backgroundImage: `url(${searchPictureURL})` }}
 		/>
 		<div className="flex items-center justify-between">
@@ -27,7 +27,7 @@ const Image: React.FC<ImageProps> = ({
 				<img
 					src={userImageURL}
 					alt="user picture"
-					className="w-10 h-10 rounded-full"
+					className="w-8 h-8 rounded-full"
 				/>
 				<p>{userName}</p>
 			</div>
