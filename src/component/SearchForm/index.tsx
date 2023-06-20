@@ -10,10 +10,12 @@ import {
 import FiltersNavBar from "../FiltersNavBar";
 import { FilterContext } from "../../contexts/FilterContext";
 import { getData } from "../../service";
+import { DataContext } from "../../contexts/DataContext";
 
 const SearchForm: React.FC = () => {
 	const inputRef = useRef<null | HTMLInputElement>(null);
 	const { filter } = useContext(FilterContext);
+	const { updateData } = useContext(DataContext);
 
 	const [inputValue, setInputValue] = useState<string>("");
 	const [closeBtnVisibility, setCloseBtnVisibility] = useState<boolean>(false);
@@ -21,8 +23,8 @@ const SearchForm: React.FC = () => {
 
 	useEffect(() => {
 		const data = getData(lastSearch, filter);
-		data.then((res) => console.log(res));
-	}, [filter, lastSearch]);
+		data.then((res) => updateData(res));
+	}, [filter, lastSearch, updateData]);
 
 	const handleSubmit = async (event: FormEvent) => {
 		event.preventDefault();
