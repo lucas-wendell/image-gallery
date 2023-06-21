@@ -8,6 +8,7 @@ type ImageProps = {
 	userImageURL: string;
 	searchPictureURL: string;
 	userName: string;
+	pageURL: string;
 };
 
 const Image: React.FC<ImageProps> = ({
@@ -16,6 +17,7 @@ const Image: React.FC<ImageProps> = ({
 	userImageURL,
 	searchPictureURL,
 	userName,
+	pageURL,
 }: ImageProps) => {
 	const [imageError, setImageError] = useState(false);
 
@@ -25,10 +27,14 @@ const Image: React.FC<ImageProps> = ({
 
 	return (
 		<div className="space-y-4 h-min">
-			<div
-				className="w-full h-56 bg-cover bg-center bg-no-repeat rounded-lg"
-				style={{ backgroundImage: `url(${searchPictureURL})` }}
-			/>
+			<a href={pageURL} target="_blank">
+				<div className="w-full h-56 rounded-lg overflow-hidden ">
+					<div
+						className="w-full h-full bg-cover bg-center bg-no-repeat hover:scale-125 transition-all duration-200 ease-in-out"
+						style={{ backgroundImage: `url(${searchPictureURL})` }}
+					/>
+				</div>
+			</a>
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-2">
 					{imageError ? (

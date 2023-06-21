@@ -8,7 +8,7 @@ const GalleryContainer: React.FC = () => {
 		<div className="grid grid-cols-auto-fill gap-8 px-10 w-full">
 			{data &&
 				data.hits.map(
-					({ views, likes, userImageURL, webformatURL, user, id }) => (
+					({ views, likes, userImageURL, webformatURL, user, id, pageURL }) => (
 						<Image
 							key={id}
 							likes={likes}
@@ -16,6 +16,7 @@ const GalleryContainer: React.FC = () => {
 							searchPictureURL={webformatURL}
 							userName={user}
 							userImageURL={userImageURL}
+							pageURL={pageURL}
 						/>
 					)
 				)}
