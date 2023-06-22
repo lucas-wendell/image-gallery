@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { faEye, faHeart, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ImageStatistics from "../ImageStatics";
+import ImageStatistics from "../ImageStatistics";
 
 type UserInfoProps = {
 	views: number;
