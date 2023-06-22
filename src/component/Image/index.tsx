@@ -58,7 +58,11 @@ const Image: React.FC<ImageProps> = ({
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-2">
 					{imageError ? (
-						<div className="w-7 h-7 border border-pink flex items-center justify-center rounded-full">
+						<div
+							title="User Profile Picture Not Found"
+							aria-label="User Profile Picture Not Found"
+							className="w-7 h-7 border border-pink flex items-center justify-center rounded-full"
+						>
 							<FontAwesomeIcon icon={faUser} className="w-4 h-4 text-pink" />
 						</div>
 					) : (
