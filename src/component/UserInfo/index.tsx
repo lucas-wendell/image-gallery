@@ -1,26 +1,13 @@
 import React, { useState } from "react";
 import { faEye, faHeart, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ImageStatistics from "../ImageStatics";
 
 type UserInfoProps = {
 	views: number;
 	likes: number;
 	userImageURL: string;
 	userName: string;
-};
-
-const formatNumber = (number: number): string | number => {
-	if (number >= 1000 && number < 1_000_000) {
-		return (number / 1000).toFixed(1).replace(/\.0$/, "") + "K";
-	} else if (number >= 1_000_000 && number < 1_000_000_000) {
-		return (number / 1_000_000).toFixed(1).replace(/\.0$/, "") + "M";
-	} else if (number >= 1_000_000_000 && number < 1_000_000_000_000) {
-		return (number / 1_000_000_000).toFixed(1).replace(/\.0$/, "") + "B";
-	} else if (number >= 1_000_000_000_000 && number < 1_000_000_000_000_000) {
-		return (number / 1_000_000_000_000).toFixed(1).replace(/\.0$/, "") + "T";
-	} else {
-		return number; // is less than 1000
-	}
 };
 
 const UserInfo: React.FC<UserInfoProps> = ({
@@ -57,24 +44,8 @@ const UserInfo: React.FC<UserInfoProps> = ({
 				<p>{userName}</p>
 			</div>
 			<div className="flex items-center gap-2">
-				<div className="space-x-1 text-gray">
-					<FontAwesomeIcon
-						icon={faHeart}
-						className="cursor-pointer hover:text-pink transition-all duration-300 ease-in-out"
-					/>
-					<span className="text-main-gray font-medium">
-						{formatNumber(likes)}
-					</span>
-				</div>
-				<div className="space-x-1 text-gray">
-					<FontAwesomeIcon
-						icon={faEye}
-						className="cursor-pointer hover:text-pink transition-all duration-300 ease-in-out"
-					/>
-					<span className="text-main-gray font-medium">
-						{formatNumber(views)}
-					</span>
-				</div>
+				<ImageStatistics icon={faHeart} statisticValue={likes} />
+				<ImageStatistics icon={faEye} statisticValue={views} />
 			</div>
 		</div>
 	);
