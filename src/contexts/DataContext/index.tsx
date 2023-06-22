@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import type { Response } from "../../service";
-import mock from "./mock";
 
 type Props = {
 	children: React.ReactNode;
@@ -12,7 +11,7 @@ type DataContextType = {
 };
 
 const initialState = {
-	data: mock,
+	data: null,
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	updateData: () => {},
 };
