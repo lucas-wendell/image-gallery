@@ -28,7 +28,11 @@ const Image: React.FC<ImageProps> = ({
 	};
 
 	return (
-		<div className="space-y-4 h-min">
+		<motion.div
+			initial={{ x: -200 }}
+			whileInView={{ x: 0 }}
+			className="space-y-4 h-min"
+		>
 			<a href={pageURL} target="_blank">
 				<div className="w-full h-56 rounded-lg overflow-hidden ">
 					<div
@@ -70,7 +74,7 @@ const Image: React.FC<ImageProps> = ({
 					</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 
