@@ -4,6 +4,12 @@ export default {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
 		extend: {
+			gridTemplateColumns: {
+				"auto-fill": "repeat(auto-fill, minmax(270px, 1fr))",
+			},
+			gridTemplateRows: {
+				"auto-fill": "repeat(auto-fill, minmax(270px, 1fr))",
+			},
 			colors: {
 				pink: "#ea4c89",
 				"dark-blue": "#0d0c22",
