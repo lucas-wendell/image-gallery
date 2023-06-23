@@ -27,14 +27,17 @@ export type Response = {
 	totalHits: number;
 };
 
-export const getData = async (
+type GetData = (
 	query: string,
-	categoryFilter: string
-): Promise<Response> => {
+	categoryFilter: string,
+	actualPage: number
+) => Promise<Response>;
+
+export const getData: GetData = async (query, categoryFilter, actualPage) => {
 	const res = await fetch(
 		`https://pixabay.com/api/?key=${
 			import.meta.env.VITE_API_KEY
-		}&q=${query}&category=${categoryFilter}`
+		}&q=${query}&category=${categoryFilter}&page=${actualPage}`
 	);
 	const data = await res.json();
 

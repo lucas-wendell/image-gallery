@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import PageNumberButton from "../PageNumberButton";
+import { ApiConfigContext } from "../../contexts/ApiConfigContext";
 
 const PaginationNav: React.FC = () => {
-	const [actualPage, setActualPage] = useState<number>(1);
+	const { actualPage, changeActualPage } = useContext(ApiConfigContext);
 
 	const handleChangeActualPage = (goTo: "next" | "prev") => {
 		if (actualPage === 1 && goTo === "prev") return;
-		setActualPage((prevState) => (goTo === "next" ? ++prevState : --prevState));
+		changeActualPage(goTo);
 	};
 
 	return (
