@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import PageNumberButton from "../PageNumberButton";
 
 const PaginationNav: React.FC = () => {
-	const [actualPage, setActualPage] = useState<number>(2);
+	const [actualPage, setActualPage] = useState<number>(1);
 
 	const handleChangeActualPage = (goTo: "next" | "prev") => {
+		if (actualPage === 1 && goTo === "prev") return;
 		setActualPage((prevState) => (goTo === "next" ? ++prevState : --prevState));
 	};
 
@@ -16,15 +18,17 @@ const PaginationNav: React.FC = () => {
 				prev
 			</button>
 			<div>
-				<button className="border-none bg-transparent text-pink w-8 h-8 transition-all duration-300 ease-in-out hover:bg-pink/20">
-					{actualPage - 1}
-				</button>
-				<button className="border-none bg-pink text-white w-8 h-8 transition-all duration-300 ease-in-out ">
-					{actualPage}
-				</button>
-				<button className="border-none bg-transparent text-pink w-8 h-8 transition-all duration-300 ease-in-out hover:bg-pink/20">
-					{actualPage + 1}
-				</button>
+				<PageNumberButton
+					pageNumber={actualPage === 1 ? actualPage : actualPage - 1}
+					variant={actualPage === 1 ? "secondary" : "primary"}
+				/>
+				<PageNumberButton
+					pageNumber={actualPage === 1 ? actualPage + 1 : actualPage}
+					variant={actualPage !== 1 ? "secondary" : "primary"}
+				/>
+				<PageNumberButton
+					pageNumber={actualPage === 1 ? actualPage + 2 : actualPage + 1}
+				/>
 			</div>
 			<button
 				onClick={() => handleChangeActualPage("next")}
