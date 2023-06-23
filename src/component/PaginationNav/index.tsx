@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import PageNumberButton from "../PageNumberButton";
 import { ApiConfigContext } from "../../contexts/ApiConfigContext";
 
@@ -9,6 +9,10 @@ const PaginationNav: React.FC = () => {
 		if (actualPage === 1 && goTo === "prev") return;
 		changeActualPage(goTo);
 	};
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [actualPage]);
 
 	return (
 		<div className="flex items-center justify-center gap-2 py-4 col-span-full">
