@@ -10,6 +10,7 @@ type ApiConfigContextType = {
 	changeFilter: (newFilter: string) => void;
 	actualPage: number;
 	changeActualPage: (action: "next" | "prev") => void;
+	setActualPage: (pageNumber: number) => void;
 };
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
 	actualPage: 1,
 	changeFilter: () => {},
 	changeActualPage: () => {},
+	setActualPage: () => {},
 };
 
 export const ApiConfigContext =
@@ -41,6 +43,7 @@ const ApiConfigContextProvider = ({ children }: Props) => {
 				changeActualPage,
 				changeFilter,
 				actualPage,
+				setActualPage,
 			}}
 		>
 			{children}
