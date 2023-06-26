@@ -57,6 +57,7 @@ const SearchForm: React.FC = () => {
 			inputRef.current.value = "";
 		}
 		setInputValue("");
+		setLastSearch("");
 	};
 
 	useEffect(() => {
