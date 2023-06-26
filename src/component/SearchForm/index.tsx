@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import FiltersNavBar from "../FiltersNavBar";
-import { FilterContext } from "../../contexts/FilterContext";
+import { ApiConfigContext } from "../../contexts/ApiConfigContext";
 
 import { getData } from "../../service";
 import { DataContext } from "../../contexts/DataContext";
@@ -17,7 +17,7 @@ import { DataContext } from "../../contexts/DataContext";
 const SearchForm: React.FC = () => {
 	const inputRef = useRef<null | HTMLInputElement>(null);
 
-	const { filter } = useContext(FilterContext);
+	const { filter, actualPage } = useContext(ApiConfigContext);
 	const { updateData } = useContext(DataContext);
 
 	const [inputValue, setInputValue] = useState<string>("");
@@ -27,11 +27,11 @@ const SearchForm: React.FC = () => {
 	const [data, setData] = useState<Response | null>(null);
 
 	useEffect(() => {
-		const data = getData(lastSearch, filter);
+		const data = getData(lastSearch, filter, actualPage);
 		data.then((res) => {
 			setData(res);
 		});
-	}, [filter, lastSearch]);
+	}, [filter, actualPage, lastSearch]);
 
 	useEffect(() => {
 		if (data) updateData(data);

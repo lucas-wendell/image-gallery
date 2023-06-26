@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import FilterButton from "../FilterButton";
-import { FilterContext } from "../../contexts/FilterContext";
+import { ApiConfigContext } from "../../contexts/ApiConfigContext";
 
 type Categories = Array<{
 	name: string;
@@ -9,7 +9,7 @@ type Categories = Array<{
 }>;
 
 const FiltersNavBar: React.FC = () => {
-	const { changeFilter } = useContext(FilterContext);
+	const { changeFilter } = useContext(ApiConfigContext);
 	const [categories, setCategories] = useState<Categories>([
 		{
 			name: "backgrounds",
@@ -119,6 +119,7 @@ const FiltersNavBar: React.FC = () => {
 		if (!id || !target.textContent) return;
 
 		changeFilter(target.textContent);
+
 		setCategories((prevState) =>
 			prevState.map((category) =>
 				category.id === id
