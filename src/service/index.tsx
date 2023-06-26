@@ -1,3 +1,5 @@
+import * as api_config from "./api_config";
+
 export type Response = {
 	hits: Array<{
 		id: number;
@@ -37,7 +39,9 @@ export const getData: GetData = async (query, categoryFilter, actualPage) => {
 	const res = await fetch(
 		`https://pixabay.com/api/?key=${
 			import.meta.env.VITE_API_KEY
-		}&q=${query}&category=${categoryFilter}&page=${actualPage}`
+		}&q=${query}&category=${categoryFilter}&per_page=${
+			api_config.default.per_page
+		}&page=${actualPage}`
 	);
 	const data = await res.json();
 
