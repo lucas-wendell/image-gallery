@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Image from "../Image";
 import { DataContext } from "../../contexts/DataContext";
+import PaginationNav from "../PaginationNav";
 
 const GalleryContainer: React.FC = () => {
 	const { data } = useContext(DataContext);
@@ -20,6 +21,7 @@ const GalleryContainer: React.FC = () => {
 						/>
 					)
 				)}
+			<PaginationNav />
 		</div>
 	);
 };
