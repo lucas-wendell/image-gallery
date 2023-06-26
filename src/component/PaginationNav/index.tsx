@@ -3,8 +3,7 @@ import PageNumberButton from "../PageNumberButton";
 import { ApiConfigContext } from "../../contexts/ApiConfigContext";
 
 const PaginationNav: React.FC = () => {
-	const { actualPage, changeActualPage, setActualPage } =
-		useContext(ApiConfigContext);
+	const { actualPage, changeActualPage } = useContext(ApiConfigContext);
 
 	const handleChangeActualPage = (goTo: "next" | "prev") => {
 		if (actualPage === 1 && goTo === "prev") return;
@@ -25,17 +24,14 @@ const PaginationNav: React.FC = () => {
 			</button>
 			<div>
 				<PageNumberButton
-					onClick={setActualPage}
 					pageNumber={actualPage === 1 ? actualPage : actualPage - 1}
 					variant={actualPage === 1 ? "secondary" : "primary"}
 				/>
 				<PageNumberButton
-					onClick={setActualPage}
 					pageNumber={actualPage === 1 ? actualPage + 1 : actualPage}
 					variant={actualPage !== 1 ? "secondary" : "primary"}
 				/>
 				<PageNumberButton
-					onClick={setActualPage}
 					pageNumber={actualPage === 1 ? actualPage + 2 : actualPage + 1}
 				/>
 			</div>
