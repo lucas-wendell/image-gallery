@@ -66,20 +66,20 @@ const SearchForm: React.FC = () => {
 	}, [inputValue]);
 
 	return (
-		<div className="flex items-center justify-center flex-col gap-7 w-4/5 h- absolute left-2/4 -translate-x-2/4 top-full -translate-y-2/4 ">
+		<div className="flex items-center justify-center flex-col gap-7 w-4/5 absolute left-2/4 -translate-x-2/4 top-full -translate-y-2/4 max-sm:w-10/12 ">
 			<form
-				className="flex items-center justify-center w-full mt-87px bg-white py-5 px-2.5 rounded-lg shadow-formShadow"
+				className="flex items-center justify-center flex-nowrap w-full mt-87px bg-white py-5 px-2.5 rounded-lg shadow-formShadow"
 				onSubmit={handleSubmit}
 				onClick={handleFormClick}
 			>
-				<label className="w-full h-full" htmlFor="search">
-					<FontAwesomeIcon
-						className="mr-2.5 text-gray"
-						icon={faMagnifyingGlass}
-					/>
+				<label
+					className="flex items-center gap-2.5 w-full h-full"
+					htmlFor="search"
+				>
+					<FontAwesomeIcon className="text-gray" icon={faMagnifyingGlass} />
 					<input
 						ref={inputRef}
-						className="outline-none bg-transparent placeholder-gray text-dark-blue"
+						className="outline-none bg-transparent placeholder-gray text-dark-blue w-full"
 						type="text"
 						placeholder="Search..."
 						onChange={handleInputChange}
