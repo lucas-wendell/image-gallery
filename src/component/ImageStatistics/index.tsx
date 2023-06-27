@@ -25,12 +25,12 @@ const ImageStatistics: React.FC<ImageStaticsProps> = ({
 	icon,
 	statisticValue,
 }) => (
-	<div className="space-x-1 text-gray">
+	<div className="flex items-center space-x-1 text-gray">
 		<FontAwesomeIcon
 			icon={icon}
 			className="cursor-pointer hover:text-pink transition-all duration-300 ease-in-out"
 		/>
-		<span className="text-main-gray font-medium">
+		<span className="text-main-gray font-medium max-sm:text-sm max-xsm:text-xs">
 			{formatNumber(statisticValue)}
 		</span>
 	</div>
