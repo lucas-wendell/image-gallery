@@ -6,7 +6,7 @@ import PaginationNav from "../PaginationNav";
 const GalleryContainer: React.FC = () => {
 	const { data } = useContext(DataContext);
 	return (
-		<div className="grid grid-cols-auto-fill gap-8 px-10 max-sm:px-8 w-full">
+		<div className="grid grid-cols-auto-fill gap-8 px-10 w-full max-sm:px-8 max-xsm:grid-cols-sm-auto-fill">
 			{data &&
 				data.hits.map(
 					({ views, likes, userImageURL, webformatURL, user, id, pageURL }) => (

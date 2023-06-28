@@ -8,7 +8,8 @@ export default {
 				xsm: "350px",
 			},
 			gridTemplateColumns: {
-				"auto-fill": "repeat(auto-fill, minmax(200px, 1fr))",
+				"auto-fill": "repeat(auto-fill, minmax(270px, 1fr))",
+				"sm-auto-fill": "repeat(auto-fill, minmax(200px, 1fr))",
 			},
 			gridTemplateRows: {
 				"auto-fill": "repeat(auto-fill, minmax(270px, 1fr))",
